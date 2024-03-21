@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入css初始化文件 -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- 引入首页的css -->
+    <link rel="stylesheet" href="css/index4.css">
+    <!--html页面标题-->
+    <title>Echarts应用</title>
+</head>
+
+<body>
+    <header>
+        <h1>Echarts应用</h1><!--大屏标题-->
+        <div id="link1"> <a href="index.html">折线及柱状图</a> </div>
+        <div id="link2"> <a href="index2.html">饼图及散点图</a> </div>
+        <div id="link3"> <a href="index3.html">其他图表一</a> </div>
+        <div id="link4"> <a href="index4.html">其他图表二</a> </div>
+        <!--显示当前时间-->
+        <div id="showtime"></div>
+        <script>
+            var clock = null;
+            clock = setTimeout(nowTime, 1000);
+
+            function nowTime() {
+                clearTimeout(clock);
+                var t = new Date();
+                // var y = t.;
+
+                var time = t.getFullYear() + "年" + (t.getMonth()+1) +
+                    "月" + t.getDate() + "日" + t.getHours() + "时" + t.getMinutes() +
+                    "分" + t.getSeconds() + "秒";
+                document.getElementById('showtime').innerHTML = time;
+
+                clock = setTimeout(nowTime, 1000);
+            }
+        </script>
+
+    </header>
+    <section>
+
+        <div class="main">
+            <div class="column">
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Sankey">
+                        <h2>桑基图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Funnel">
+                        <h2>漏斗图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--新列-->
+            <div class="column">
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Gauge">
+                        <h2>仪表盘</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="date">
+                        <h2>日历</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="column">
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="heat2">
+                        <h2>热力图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Map2">
+                        <h2>地图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <script src="js/echarts.js"></script>
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/index4.js"></script>
+
+</body>
+
+
+</html>
+

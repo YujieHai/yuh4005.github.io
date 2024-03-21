@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入css初始化文件 -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- 引入首页的css -->
+    <link rel="stylesheet" href="css/index.css">
+    <!--html页面标题-->
+    <title>Echarts应用</title>
+</head>
+
+<body>
+    <header>
+        <h1>Echarts应用</h1><!--大屏标题-->
+        <div id="link1"> <a href="index.html">折线及柱状图</a> </div>
+        <div id="link2"> <a href="index2.html">饼图及散点图</a> </div>
+        <div id="link3"> <a href="index3.html">其他图表一</a> </div>
+        <div id="link4"> <a href="index4.html">其他图表二</a> </div>
+        <!--显示当前时间-->
+        <div id="showtime"></div>
+        <script>
+            var clock = null;
+            clock = setTimeout(nowTime, 1000);
+
+            function nowTime() {
+                clearTimeout(clock);
+                var t = new Date();
+                // var y = t.;
+
+                var time = t.getFullYear() + "年" + (t.getMonth()+1) +
+                    "月" + t.getDate() + "日" + t.getHours() + "时" + t.getMinutes() +
+                    "分" + t.getSeconds() + "秒";
+                document.getElementById('showtime').innerHTML = time;
+
+                clock = setTimeout(nowTime, 1000);
+            }
+        </script>
+
+    </header>
+    <section>
+
+        <div class="main">
+            <div class="column">
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Stacked_Line">
+                        <!--左1图标题-->
+                        <h2>折线图堆叠</h2>
+                        <!--左1图，具体数据和格式见js文件-->
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Gradient_Stacked_Area">
+                        <!--左2图标题-->
+                        <h2>渐变堆叠面积图
+                            <!--a href="javascript:;">2020</a>
+                            <a href="javascript:;">2021</a-->
+                        </h2>
+                        <!--左2图，具体数据和格式见js文件-->
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Bump">
+                        <!--左3图标题-->
+                        <h2>凹凸图</h2>
+                        <!--左3图，具体数据和格式见js文件-->
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--新列-->
+            <div class="column">
+                <div class="num">
+                    <div class="num-hd">
+                        <ul>
+                            <li>15**55</li>
+                            <li>25**43</li>
+                        </ul>
+                    </div>
+                    <div class="num-bd">
+                        <ul>
+                            <li>展示数据1</li>
+                            <li>展示数据2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="map">
+                    <div class="map1"></div>
+                    <div class="map2"></div>
+                    <div class="map3"></div>
+                    <div class="chart"></div>
+                </div>
+            </div>
+
+            <!--新列-->
+            <div class="column">
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Bar">
+                        <!--右1图标题-->
+                        <h2>柱状图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Negative_Value_Bar">
+                        <h2>正负条形图</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-footer"> </div>
+                    <div class="Mixed_Line_Bar">
+                        <h2>折柱混合</h2>
+                        <div class="chart"> </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <script src="js/echarts.js"></script>
+    <script src="js/flexible.js"></script>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="js/china.js"></script>
+    <script src="js/myMap.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
+
