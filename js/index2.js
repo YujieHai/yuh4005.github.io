@@ -264,69 +264,94 @@
 //中2
 (function() {
     var myChart = echarts.init(document.querySelector(".Scatter .chart"));
-    $.get('/data/2_5.json', function (data) {
-        var option={
-            grid: {
-                left: "3%",
-                top: "10%",
-                right: "10%",
-                bottom: "10%",
-                containLabel: true,
-                show:false,
-                borderColor: "#eeeeee"
+    var option={
+        grid: {
+            left: "3%",
+            top: "10%",
+            right: "10%",
+            bottom: "10%",
+            containLabel: true,
+            show:false,
+            borderColor: "#eeeeee"
+        },
+        axisLabel: { color: "#eeeeee"},
+        xAxis: {
+            name:"x轴",
+            nameTextStyle:{
+                fontSize:14,
+                color:"#eeeeee",
+                padding:[8,0,0,0]
             },
-            axisLabel: { color: "#eeeeee"},
-            xAxis: {
-                name:"x轴",
-                nameTextStyle:{
-                    fontSize:14,
-                    color:"#eeeeee",
-                    padding:[8,0,0,0]
-                },
-                nameLocation:'center',
-                scale: true,
-                splitLine:false,
-                axisLine:{
-                    lineStyle:{
-                        color: "#eeeeee"
-                    }
+            nameLocation:'center',
+            scale: true,
+            splitLine:false,
+            axisLine:{
+                lineStyle:{
+                    color: "#eeeeee"
                 }
+            }
+        },
+        yAxis: {
+            name:"y轴",
+            nameTextStyle:{
+                fontSize:14,
+                color:"#eeeeee",
+                padding:[0,0,8,0]
             },
-            yAxis: {
-                name:"y轴",
-                nameTextStyle:{
-                    fontSize:14,
-                    color:"#eeeeee",
-                    padding:[0,0,8,0]
-                },
-                nameLocation:'center',
-                scale: true,
-                splitLine:false,
-                axisLine:{
-                    lineStyle:{
-                        color: "#eeeeee"
-                    }
+            nameLocation:'center',
+            scale: true,
+            splitLine:false,
+            axisLine:{
+                lineStyle:{
+                    color: "#eeeeee"
                 }
+            }
+        },
+        series: [
+            {
+                type: 'effectScatter', //涟漪特效
+                symbolSize: 20,
+                color:'#91cc75',
+                data: [
+                    [172.7, 105.2],
+                    [153.4, 42]
+                ]
             },
-            series: [
-                {
-                    type: 'effectScatter', //涟漪特效
-                    symbolSize: 20,
-                    color:'#91cc75',
-                    data: [
-                        [172.7, 105.2],
-                        [153.4, 42]
-                    ]
-                },
-                {
-                    type: 'scatter',
-                    data: data,
-                    color:'#ee6666'
-                }
-            ]
-        };
-        myChart.setOption(option);
-    });
+            {
+                type: 'scatter',
+                data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+                      [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
+                      [172.5, 55.2], [170.9, 54.2], [172.9, 62.5], [153.4, 42.0], [160.0, 50.0],
+                      [147.2, 49.8], [168.2, 49.2], [175.0, 73.2], [157.0, 47.8], [167.6, 68.8],
+                      [159.5, 50.6], [175.0, 82.5], [166.8, 57.2], [176.5, 87.8], [170.2, 72.8],
+                      [174.0, 54.5], [173.0, 59.8], [179.9, 67.3], [170.5, 67.8], [160.0, 47.0],
+                      [154.4, 46.2], [162.0, 55.0], [176.5, 83.0], [160.0, 54.4], [152.0, 45.8],
+                      [172.7, 62.0], [155.0, 49.2], [156.5, 67.2], [164.0, 53.8], [160.9, 54.4],
+                      [162.8, 58.0], [167.0, 59.8], [160.0, 54.8], [160.0, 43.2], [168.9, 60.5],
+                      [158.2, 46.4], [156.0, 64.4], [160.0, 48.8], [167.1, 62.2], [158.0, 55.5],
+                      [167.6, 57.8], [156.0, 54.6], [162.1, 59.2], [173.4, 52.7], [159.8, 53.2],
+                      [170.5, 64.5], [159.2, 51.8], [157.5, 56.0], [161.3, 63.6], [162.6, 63.2],
+                      [160.0, 59.5], [168.9, 56.8], [165.1, 64.1], [162.6, 50.0], [165.1, 72.3],
+                      [175.3, 65.5], [157.5, 48.6], [163.8, 58.6], [167.6, 63.6], [165.1, 55.2],
+                      [165.1, 62.7], [168.9, 56.6], [162.6, 53.9], [164.5, 63.2], [176.5, 73.6],
+                      [168.9, 62.0], [175.3, 63.6], [159.4, 53.2], [160.0, 53.4], [170.2, 55.0],
+                      [162.6, 70.5], [167.6, 54.5], [162.6, 54.5], [160.7, 55.9], [160.0, 59.0],
+                      [157.5, 63.6], [162.6, 54.5], [152.4, 47.3], [170.2, 67.7], [165.1, 80.9],
+                      [172.7, 70.5], [165.1, 60.9], [170.2, 63.6], [170.2, 54.5], [170.2, 59.1],
+                      [161.3, 70.5], [167.6, 52.7], [167.6, 62.7], [165.1, 86.3], [162.6, 66.4],
+                      [152.4, 67.3], [168.9, 63.0], [170.2, 73.6], [175.2, 62.3], [175.2, 57.7],
+                      [160.0, 55.4], [165.1, 104.1], [174.0, 55.5], [170.2, 77.3], [160.0, 80.5],
+                      [167.6, 64.5], [167.6, 72.3], [167.6, 61.4], [154.9, 58.2], [162.6, 81.8],
+                      [175.3, 63.6], [171.4, 53.4], [157.5, 54.5], [165.1, 53.6], [160.0, 60.0],
+                      [174.0, 73.6], [162.6, 61.4], [174.0, 55.5], [162.6, 63.6], [161.3, 60.9],
+                      [156.2, 60.0], [149.9, 46.8], [169.5, 57.3], [160.0, 64.1], [175.3, 63.6],
+                      [169.5, 67.3], [160.0, 75.5], [172.7, 68.2], [162.6, 61.4], [157.5, 76.8],
+                      [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]],
+                color:'#ee6666'
+            }
+        ]
+    };
+    myChart.setOption(option);
     window.addEventListener("resize", function() {
         myChart.resize();
     });
@@ -335,66 +360,94 @@
 //中3
 (function() {
     var myChart = echarts.init(document.querySelector(".Scatter_Single_Axis .chart"));
-    $.get('/data/2_6.json', function (data) {
-        const hours = [
-            '12a', '1a', '2a', '3a', '4a', '5a', '6a',
-            '7a', '8a', '9a', '10a', '11a',
-            '12p', '1p', '2p', '3p', '4p', '5p',
-            '6p', '7p', '8p', '9p', '10p', '11p'
-        ];
-        const days = ['Sat', 'Fri', 'Thu','Wed', 'Tue', 'Mon', 'Sun'];
-        const title = [];
-        const singleAxis = [];
-        const series = [];
-        days.forEach(function (day, idx) {
-            title.push({ //左侧标题
-                textBaseline: 'middle', //居中
-                top: ((idx + 0.5) * 90) / 7 + '%', // 距离
-                text: day, // 设置文字
-                textStyle:{
-                    color: "#eeeeee"
-                } // 设置颜色
-            });
-            singleAxis.push({
-                left: 50, // 设置左侧距离
-                type: 'category',
-                boundaryGap: false,
-                data: hours, // 设置轴数据
-                top: (idx * 90) / 7 + 5 + '%', // 设置上方距离
-                height: 100 / 7 - 10 + '%', // 设置轴高度
-                axisLabel: {
-                    interval: 2
-                }, // 设置轴标签显示
-                axisLine:{
-                    lineStyle:{
-                        color: "#eeeeee"
-                    }
-                } // 设置轴颜色
-            });
-            series.push({
-                singleAxisIndex: idx,
-                coordinateSystem: 'singleAxis',
-                type: 'scatter',
-                data: [],
-                symbolSize: function (dataItem) {
-                    return dataItem[1] * 3;
-                } // 大小按idx的第二列设置
-            });
-        });
-        data.forEach(function (dataItem) {
-            series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-        });
-        var option = {
-            color: ["#5470c6","#91cc75","#fac858","#ee6666","#73c0de","#3ba272","#fc8452","#ea7ccc"],//可以多写几种颜色
-            title: title,
+    const hours = [
+        '12a', '1a', '2a', '3a', '4a', '5a', '6a',
+        '7a', '8a', '9a', '10a', '11a',
+        '12p', '1p', '2p', '3p', '4p', '5p',
+        '6p', '7p', '8p', '9p', '10p', '11p'
+    ];
+    const days = ['Sat', 'Fri', 'Thu','Wed', 'Tue', 'Mon', 'Sun'];
+    const data = [
+                [0, 0, 5], [0, 1, 1], [0, 2, 0], [0, 3, 0], [0, 4, 0], [0, 5, 0], [0, 6, 0],
+                [0, 7, 0], [0, 8, 0], [0, 9, 0], [0, 10, 0], [0, 11, 2], [0, 12, 4], [0, 13, 1],
+                [0, 14, 1], [0, 15, 3], [0, 16, 4], [0, 17, 6], [0, 18, 4], [0, 19, 4], [0, 20, 3],
+                [0, 21, 3], [0, 22, 2], [0, 23, 5],
+                [1, 0, 7], [1, 1, 0], [1, 2, 0], [1, 3, 0], [1, 4, 0], [1, 5, 0], [1, 6, 0],
+                [1, 7, 0], [1, 8, 0], [1, 9, 0], [1, 10, 5], [1, 11, 2], [1, 12, 2], [1, 13, 6],
+                [1, 14, 9], [1, 15, 11], [1, 16, 6], [1, 17, 7], [1, 18, 8], [1, 19, 12], [1, 20, 5],
+                [1, 21, 5], [1, 22, 7], [1, 23, 2],
+                [2, 0, 1], [2, 1, 1], [2, 2, 0], [2, 3, 0], [2, 4, 0], [2, 5, 0], [2, 6, 0],
+                [2, 7, 0], [2, 8, 0], [2, 9, 0], [2, 10, 3], [2, 11, 2], [2, 12, 1], [2, 13, 9],
+                [2, 14, 8], [2, 15, 10], [2, 16, 6], [2, 17, 5], [2, 18, 5], [2, 19, 5], [2, 20, 7],
+                [2, 21, 4], [2, 22, 2], [2, 23, 4],
+                [3, 0, 7], [3, 1, 3], [3, 2, 0], [3, 3, 0], [3, 4, 0], [3, 5, 0], [3, 6, 0],
+                [3, 7, 0], [3, 8, 1], [3, 9, 0], [3, 10, 5], [3, 11, 4], [3, 12, 7], [3, 13, 14],
+                [3, 14, 13], [3, 15, 12], [3, 16, 9], [3, 17, 5], [3, 18, 5], [3, 19, 10], [3, 20, 6],
+                [3, 21, 4], [3, 22, 4], [3, 23, 1],
+                [4, 0, 1], [4, 1, 3], [4, 2, 0], [4, 3, 0], [4, 4, 0], [4, 5, 1], [4, 6, 0],
+                [4, 7, 0], [4, 8, 0], [4, 9, 2], [4, 10, 4], [4, 11, 4], [4, 12, 2], [4, 13, 4],
+                [4, 14, 4], [4, 15, 14], [4, 16, 12], [4, 17, 1], [4, 18, 8], [4, 19, 5], [4, 20, 3],
+                [4, 21, 7], [4, 22, 3], [4, 23, 0],
+                [5, 0, 2], [5, 1, 1], [5, 2, 0], [5, 3, 3], [5, 4, 0], [5, 5, 0], [5, 6, 0],
+                [5, 7, 0], [5, 8, 2], [5, 9, 0], [5, 10, 4], [5, 11, 1], [5, 12, 5], [5, 13, 10],
+                [5, 14, 5], [5, 15, 7], [5, 16, 11], [5, 17, 6], [5, 18, 0], [5, 19, 5], [5, 20, 3],
+                [5, 21, 4], [5, 22, 2], [5, 23, 0],
+                [6, 0, 1], [6, 1, 0], [6, 2, 0], [6, 3, 0], [6, 4, 0], [6, 5, 0], [6, 6, 0],
+                [6, 7, 0], [6, 8, 0], [6, 9, 0], [6, 10, 1], [6, 11, 0], [6, 12, 2], [6, 13, 1],
+                [6, 14, 3], [6, 15, 4], [6, 16, 0], [6, 17, 0], [6, 18, 0], [6, 19, 0], [6, 20, 1],
+                [6, 21, 2], [6, 22, 2], [6, 23, 6]
+                ];
+    const title = [];
+    const singleAxis = [];
+    const series = [];
+    days.forEach(function (day, idx) {
+        title.push({ //左侧标题
+            textBaseline: 'middle', //居中
+            top: ((idx + 0.5) * 90) / 7 + '%', // 距离
+            text: day, // 设置文字
             textStyle:{
-                color:"#eeeeee"
-            },
-            singleAxis: singleAxis,
-            series: series
-        };
-        myChart.setOption(option);
+                color: "#eeeeee"
+            } // 设置颜色
+        });
+        singleAxis.push({
+            left: 50, // 设置左侧距离
+            type: 'category',
+            boundaryGap: false,
+            data: hours, // 设置轴数据
+            top: (idx * 90) / 7 + 5 + '%', // 设置上方距离
+            height: 100 / 7 - 10 + '%', // 设置轴高度
+            axisLabel: {
+                interval: 2
+            }, // 设置轴标签显示
+            axisLine:{
+                lineStyle:{
+                    color: "#eeeeee"
+                }
+            } // 设置轴颜色
+        });
+        series.push({
+            singleAxisIndex: idx,
+            coordinateSystem: 'singleAxis',
+            type: 'scatter',
+            data: [],
+            symbolSize: function (dataItem) {
+                return dataItem[1] * 3;
+            } // 大小按idx的第二列设置
+        });
     });
+    data.forEach(function (dataItem) {
+        series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+    });
+    var option = {
+        color: ["#5470c6","#91cc75","#fac858","#ee6666","#73c0de","#3ba272","#fc8452","#ea7ccc"],//可以多写几种颜色
+        title: title,
+        textStyle:{
+            color:"#eeeeee"
+        },
+        singleAxis: singleAxis,
+        series: series
+    };
+    myChart.setOption(option);
     window.addEventListener("resize", function() {
         myChart.resize();
     });
@@ -403,162 +456,204 @@
 //右1
 (function() {
     var myChart = echarts.init(document.querySelector(".Distribution .chart"));
-    $.get('/data/2_7.json', function (data) {
-        var option = {
-            color: ["#5470c6","#91cc75","#fac858","#ee6666","#73c0de","#3ba272","#fc8452","#ea7ccc"],//可以多写几种颜色
-            grid: {
-                left: '3%',
-                right: '7%',
-                bottom: '7%',
-                top:'15%',
-                containLabel: true
+    const data = {
+        "Female": [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+                    [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
+                    [172.5, 55.2], [170.9, 54.2], [172.9, 62.5], [153.4, 42.0], [160.0, 50.0],
+                    [147.2, 49.8], [168.2, 49.2], [175.0, 73.2], [157.0, 47.8], [167.6, 68.8],
+                    [159.5, 50.6], [175.0, 82.5], [166.8, 57.2], [176.5, 87.8], [170.2, 72.8],
+                    [174.0, 54.5], [173.0, 59.8], [179.9, 67.3], [170.5, 67.8], [160.0, 47.0],
+                    [154.4, 46.2], [162.0, 55.0], [176.5, 83.0], [160.0, 54.4], [152.0, 45.8],
+                    [162.1, 53.6], [170.0, 73.2], [160.2, 52.1], [161.3, 67.9], [166.4, 56.6],
+                    [168.9, 62.3], [163.8, 58.5], [167.6, 54.5], [160.0, 50.2], [161.3, 60.3],
+                    [177.8, 60.0], [165.1, 58.2], [175.3, 72.7], [154.9, 54.1], [158.8, 49.1],
+                    [172.7, 75.9], [168.9, 55.0], [161.3, 57.3], [167.6, 55.0], [165.1, 65.5],
+                    [175.3, 65.5], [157.5, 48.6], [163.8, 58.6], [167.6, 63.6], [165.1, 55.2],
+                    [165.1, 62.7], [168.9, 56.6], [162.6, 53.9], [164.5, 63.2], [176.5, 73.6],
+                    [168.9, 62.0], [175.3, 63.6], [159.4, 53.2], [160.0, 53.4], [170.2, 55.0],
+                    [174.0, 73.6], [162.6, 61.4], [174.0, 55.5], [162.6, 63.6], [161.3, 60.9],
+                    [156.2, 60.0], [149.9, 46.8], [169.5, 57.3], [160.0, 64.1], [175.3, 63.6],
+                    [169.5, 67.3], [160.0, 75.5], [172.7, 68.2], [162.6, 61.4], [157.5, 76.8],
+                    [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]
+                ],
+        "Male": [[174.0, 65.6], [175.3, 71.8], [193.5, 80.7], [186.5, 72.6], [187.2, 78.8],
+                    [181.5, 74.8], [184.0, 86.4], [184.5, 78.4], [175.0, 62.0], [184.0, 81.6],
+                    [180.0, 76.6], [177.8, 83.6], [192.0, 90.0], [176.0, 74.6], [174.0, 71.0],
+                    [184.0, 79.6], [192.7, 93.8], [171.5, 70.0], [173.0, 72.4], [176.0, 85.9],
+                    [176.0, 78.8], [180.5, 77.8], [172.7, 66.2], [176.0, 86.4], [173.5, 81.8],
+                    [178.0, 89.6], [180.3, 82.8], [180.3, 76.4], [164.5, 63.2], [173.0, 60.9],
+                    [183.5, 74.8], [175.5, 70.0], [188.0, 72.4], [189.2, 84.1], [172.8, 69.1],
+                    [170.0, 59.5], [182.0, 67.2], [170.0, 61.3], [177.8, 68.6], [184.2, 80.1],
+                    [186.7, 87.8], [171.4, 84.7], [172.7, 73.4], [175.3, 72.1], [180.3, 82.6],
+                    [182.9, 88.7], [188.0, 84.1], [177.2, 94.1], [172.1, 74.9], [167.0, 59.1],
+                    [169.5, 75.6], [174.0, 86.2], [172.7, 75.3], [182.2, 87.1], [164.1, 55.2],
+                    [163.0, 57.0], [171.5, 61.4], [184.2, 76.8], [174.0, 86.8], [174.0, 72.2],
+                    [177.8, 79.5], [177.8, 78.6], [177.8, 71.8], [177.8, 116.4], [163.8, 72.2],
+                    [188.0, 83.6], [198.1, 85.5], [175.3, 90.9], [166.4, 85.9], [190.5, 89.1],
+                    [166.4, 75.0], [177.8, 77.7], [179.7, 86.4], [172.7, 90.9], [190.5, 73.6],
+                    [185.4, 76.4], [168.9, 69.1], [167.6, 84.5], [175.3, 64.5], [170.2, 69.1],
+                    [190.5, 108.6], [177.8, 86.4], [190.5, 80.9], [177.8, 87.7], [184.2, 94.5],
+                    [176.5, 80.2], [177.8, 72.0], [180.3, 71.4], [171.4, 72.7], [172.7, 84.1],
+                    [188.0, 82.7], [175.3, 86.4], [170.5, 67.7], [179.1, 92.7], [177.8, 93.6],
+                    [174.0, 80.0], [176.5, 82.3], [180.3, 73.6], [167.6, 74.1], [188.0, 85.9],
+                    [180.3, 73.2], [167.6, 76.3], [183.0, 65.9], [183.0, 90.9], [179.1, 89.1],
+                    [170.2, 62.3], [177.8, 82.7], [179.1, 79.1], [190.5, 98.2], [177.8, 84.1],
+                    [180.3, 83.2], [180.3, 83.2]]
+    }
+    var option = {
+        color: ["#5470c6","#91cc75","#fac858","#ee6666","#73c0de","#3ba272","#fc8452","#ea7ccc"],//可以多写几种颜色
+        grid: {
+            left: '3%',
+            right: '7%',
+            bottom: '7%',
+            top:'15%',
+            containLabel: true
+        },
+        tooltip: {
+            showDelay: 0,
+            formatter: function (params) {
+                if (params.value.length > 1) {
+                    return (
+                        params.seriesName +' :<br/>' +params.value[0] +'cm ' +params.value[1] +'kg '
+                    );
+                } else {
+                    return (
+                        params.seriesName +' :<br/>' +params.name +' : ' +params.value +'kg '
+                    );
+                }
             },
-            tooltip: {
-                showDelay: 0,
-                formatter: function (params) {
-                    if (params.value.length > 1) {
-                        return (
-                            params.seriesName +' :<br/>' +params.value[0] +'cm ' +params.value[1] +'kg '
-                        );
-                    } else {
-                        return (
-                            params.seriesName +' :<br/>' +params.name +' : ' +params.value +'kg '
-                        );
-                    }
+            axisPointer: {
+                show: true,
+                type: 'cross',
+                lineStyle: {
+                    type: 'solid',
+                    width: 1
+                }
+            }
+        },
+        toolbox: {
+            feature: {
+                dataZoom: {},
+                brush: {
+                    type: ['rect', 'polygon', 'clear']
+                }
+            }
+        },
+        legend: {
+            data: ['Female', 'Male'],
+            left: 'center',
+            bottom: 10,
+            textStyle: {
+                color: "#eeeeee",
+                fontSize: "10"
+            }
+        },
+        xAxis: {
+            type: 'value',
+            scale: true,
+            axisLabel: {formatter: '{value} cm'},
+            splitLine: {
+                show: false
+            },
+            axisLine:{
+                lineStyle:{
+                    color: "#eeeeee"
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            scale: true,
+            axisLabel: { formatter: '{value} kg' },
+            splitLine: { show: false },
+            axisLine:{
+                lineStyle:{
+                    color: "#eeeeee"
+                }
+            }
+        },
+        series: [
+            {
+                name: 'Female',
+                type: 'scatter',
+                emphasis: {
+                    focus: 'series'
                 },
-                axisPointer: {
-                    show: true,
-                    type: 'cross',
+                data: data.Female,
+                markArea: {
+                    silent: true,
+                    itemStyle: {
+                        color: 'transparent',
+                        borderWidth: 1,
+                        borderType: 'solid'
+                    },
+                    data:[[
+                        {
+                            name: 'Female Data Range',
+                            xAxis: 'min',
+                            yAxis: 'min'
+                        },
+                        {
+                            xAxis: 'max',
+                            yAxis: 'max'
+                        }
+                    ]]
+                },
+                markPoint: {
+                    data: [
+                      { type: 'max', name: 'Max' },
+                      { type: 'min', name: 'Min' }
+                    ]
+                },
+                markLine: {
                     lineStyle: {
-                        type: 'solid',
-                        width: 1
-                    }
+                        type: 'solid'
+                    },
+                    data: [{ type: 'average', name: 'AVG' }, { xAxis: 160 }]
                 }
             },
-            toolbox: {
-                feature: {
-                    dataZoom: {},
-                    brush: {
-                        type: ['rect', 'polygon', 'clear']
-                    }
-                }
-            },
-            legend: {
-                data: ['Female', 'Male'],
-                left: 'center',
-                bottom: 10,
-                textStyle: {
-                    color: "#eeeeee",
-                    fontSize: "10"
-                }
-            },
-            xAxis: {
-                type: 'value',
-                scale: true,
-                axisLabel: {formatter: '{value} cm'},
-                splitLine: {
-                    show: false
+            {
+                name: 'Male',
+                type: 'scatter',
+                emphasis: {
+                    focus: 'series'
                 },
-                axisLine:{
-                    lineStyle:{
-                        color: "#eeeeee"
-                    }
-                }
-            },
-            yAxis: {
-                type: 'value',
-                scale: true,
-                axisLabel: { formatter: '{value} kg' },
-                splitLine: { show: false },
-                axisLine:{
-                    lineStyle:{
-                        color: "#eeeeee"
-                    }
-                }
-            },
-            series: [
-                {
-                    name: 'Female',
-                    type: 'scatter',
-                    emphasis: {
-                        focus: 'series'
+                data: data.Male,
+                markArea: {
+                    silent: true,
+                    itemStyle: {
+                        color: 'transparent',
+                        borderWidth: 1,
+                        borderType: 'solid'
                     },
-                    data: data.Female,
-                    markArea: {
-                        silent: true,
-                        itemStyle: {
-                            color: 'transparent',
-                            borderWidth: 1,
-                            borderType: 'solid'
+                    data: [[
+                        {
+                            name: 'Male Data Range',
+                            xAxis: 'min',
+                            yAxis: 'min'
                         },
-                        data:[[
-                            {
-                                name: 'Female Data Range',
-                                xAxis: 'min',
-                                yAxis: 'min'
-                            },
-                            {
-                                xAxis: 'max',
-                                yAxis: 'max'
-                            }
-                        ]]
-                    },
-                    markPoint: {
-                        data: [
-                          { type: 'max', name: 'Max' },
-                          { type: 'min', name: 'Min' }
-                        ]
-                    },
-                    markLine: {
-                        lineStyle: {
-                            type: 'solid'
-                        },
-                        data: [{ type: 'average', name: 'AVG' }, { xAxis: 160 }]
-                    }
+                        {
+                            xAxis: 'max',
+                            yAxis: 'max'
+                        }
+                    ]]
                 },
-                {
-                    name: 'Male',
-                    type: 'scatter',
-                    emphasis: {
-                        focus: 'series'
+                markPoint: {
+                    data: [
+                        { type: 'max', name: 'Max' },
+                        { type: 'min', name: 'Min' }
+                    ]
+                },
+                markLine: {
+                    lineStyle: {
+                        type: 'solid'
                     },
-                    data: data.Male,
-                    markArea: {
-                        silent: true,
-                        itemStyle: {
-                            color: 'transparent',
-                            borderWidth: 1,
-                            borderType: 'solid'
-                        },
-                        data: [[
-                            {
-                                name: 'Male Data Range',
-                                xAxis: 'min',
-                                yAxis: 'min'
-                            },
-                            {
-                                xAxis: 'max',
-                                yAxis: 'max'
-                            }
-                        ]]
-                    },
-                    markPoint: {
-                        data: [
-                            { type: 'max', name: 'Max' },
-                            { type: 'min', name: 'Min' }
-                        ]
-                    },
-                    markLine: {
-                        lineStyle: {
-                            type: 'solid'
-                        },
-                        data: [{ type: 'average', name: 'Average' }, { xAxis: 170 }]
-                    }
+                    data: [{ type: 'average', name: 'Average' }, { xAxis: 170 }]
                 }
-            ]
-        };
-        myChart.setOption(option);
-    });
+            }
+        ]
+    };
+    myChart.setOption(option);
     window.addEventListener("resize", function() {
         myChart.resize();
     });
